@@ -15,7 +15,6 @@
                 <img class="header__image" src="./images/favicon.png" alt="Desenho de engrenagem">
                 <h1 class="header__title">Controle de Chamados</h1>
             </div>
-            <!-- <div class="header__line"></div> -->
         </header>
         <main>
             <section class="buttons">
@@ -37,7 +36,7 @@
                     <select name="setor" id="idsetor">
                         <option value="">Selecione o setor</option>
                         <?php
-                        require_once("conexao.php");
+                        require_once("./config/conexao.php");
                         $sql = "SELECT id, nome FROM setores ORDER BY nome";
                         $stmt = $pdo->prepare($sql);
                         $stmt->execute();
@@ -52,7 +51,7 @@
                     <select name="nivel_prioridade" id="idnivel">
                         <option value="">Selecione o nível</option>
                         <?php
-                        require_once("conexao.php");
+                        require_once("./config/conexao.php");
                         $sql = "SELECT id, nivel_prioridade FROM prioridades ORDER BY nivel_prioridade";
                         $stmt = $pdo->prepare($sql);
                         $stmt->execute();

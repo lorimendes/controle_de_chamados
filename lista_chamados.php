@@ -14,7 +14,7 @@
         <header class="header">
             <div class="header__container" onclick="window.location.href='index.php'">
                 <img class="header__image" src="./images/favicon.png" alt="Desenho de engrenagem">
-                <h1 class="header__title">Controle de chamados</h1>
+                <h1 class="header__title">Controle de Chamados</h1>
             </div>
         </header>
 
@@ -44,7 +44,7 @@
 
                     <tbody>
                         <?php
-                        require_once("conexao.php");
+                        require_once("./config/conexao.php");
 
                         $sql = "SELECT 
                                     s.nome as setor_nome,

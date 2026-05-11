@@ -18,7 +18,6 @@
                 <img class="header__image" src="./images/favicon.png" alt="Desenho de engrenagem">
                 <h1 class="header__title">Controle de Chamados</h1>
             </div>
-            <!-- <div class="header__line"></div> -->
         </header>
         <main>
             <section class="buttons">

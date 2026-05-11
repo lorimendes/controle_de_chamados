@@ -1,6 +1,6 @@
 <?php
 
-require("conexao.php");
+require("./config/conexao.php");
 
 //Cadastro de setor
 if (isset($_POST['nome'])) {
