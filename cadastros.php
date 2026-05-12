@@ -12,7 +12,8 @@ if (isset($_POST['nome'])) {
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
-    echo "Setor cadastrado." . "<p><a href='index.php'>Voltar à página inicial.</a></p>";
+    header("Location: index.php?sucesso=setor");
+    exit;
 };
 
 //Cadastro de prioridade
@@ -26,7 +27,8 @@ if (isset($_POST['prioridade'])) {
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
-    echo "Nível de prioridade cadastrado." . "<p><a href='index.php'>Voltar à página inicial.</a></p>";
+    header("Location: index.php?sucesso=prioridade");
+    exit;
 };
 
 //Cadastro de chamado
@@ -41,7 +43,8 @@ if (isset($_POST['descricao'])) {
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
-    echo "Chamado aberto." . "<p><a href='index.php'>Voltar à página inicial.</a></p>";
+    header("Location: lista_chamados.php?sucesso=chamado");
+    exit;
 };
 
 //Atualização checkin
