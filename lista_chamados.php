@@ -55,7 +55,7 @@
                                     CASE 
                                         WHEN c.situacao = 'Em andamento' THEN TIMESTAMPDIFF(HOUR, c.data_inicio, NOW())
                                         WHEN c.situacao = 'Concluído' THEN TIMESTAMPDIFF(HOUR, c.data_inicio, c.data_fim)
-                                        ELSE 0 
+                                        ELSE NULL
                                     END as tempo_decorrido_horas
                                 FROM chamados c
                                 LEFT JOIN setores s ON c.id_setor = s.id

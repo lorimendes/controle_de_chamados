@@ -49,10 +49,14 @@ if (isset($_POST['descricao'])) {
 
 //Atualização checkin
 if (isset($_POST['acao']) && $_POST['acao'] == 'checkin') {
+
     $id = $_POST['id'];
-    $sql = "UPDATE chamados SET situacao = 'Em andamento', data_inicio = NOW() WHERE id_chamado = ?";
-    $stmt = $pdo->prepare($sql);
+
+    $query = "UPDATE chamados SET situacao = 'Em andamento', data_inicio = NOW() WHERE id_chamado = ?";
+
+    $stmt = $pdo->prepare($query);
     $stmt->execute([$id]);
+
     header("Location: lista_chamados.php?sucesso=checkin");
     exit;
 }
@@ -62,9 +66,9 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'checkout') {
     $id = $_POST['id'];
     $solucao = $_POST['solucao'];
 
-    $sql = "UPDATE chamados SET situacao = 'Concluído', data_fim = NOW(), solucao = ? WHERE id_chamado = ?";
+    $query = "UPDATE chamados SET situacao = 'Concluído', data_fim = NOW(), solucao = ? WHERE id_chamado = ?";
 
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->prepare($query);
     $stmt->execute([$solucao, $id]);
 
     header("Location: lista_chamados.php?sucesso=checkout");
