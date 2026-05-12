@@ -7,10 +7,10 @@ if (isset($_POST['nome'])) {
 
     $nome = $_POST['nome'];
 
-    $query = "INSERT INTO setores (nome) VALUES ('$nome')";
+    $query = "INSERT INTO setores (nome) VALUES (?)";
 
     $stmt = $pdo->prepare($query);
-    $stmt->execute();
+    $stmt->execute([$nome]);
 
     header("Location: index.php?sucesso=setor");
     exit;
@@ -22,10 +22,10 @@ if (isset($_POST['prioridade'])) {
     $nivel_prioridade = $_POST['prioridade'];
     $tempo_previsto = $_POST['tempo'];
 
-    $query = "INSERT INTO prioridades (nivel_prioridade, tempo_previsto) VALUES ('$nivel_prioridade', '$tempo_previsto')";
+    $query = "INSERT INTO prioridades (nivel_prioridade, tempo_previsto) VALUES (?, ?)";
 
     $stmt = $pdo->prepare($query);
-    $stmt->execute();
+    $stmt->execute([$nivel_prioridade, $tempo_previsto]);
 
     header("Location: index.php?sucesso=prioridade");
     exit;
@@ -38,10 +38,10 @@ if (isset($_POST['descricao'])) {
     $setor = $_POST['setor'];
     $nivel_prioridade = $_POST['nivel_prioridade'];
 
-    $query = "INSERT INTO chamados (descricao, id_setor,  id_prioridade) VALUES ('$descricao', '$setor', '$nivel_prioridade')";
+    $query = "INSERT INTO chamados (descricao, id_setor, id_prioridade) VALUES (?, ?, ?)";
 
     $stmt = $pdo->prepare($query);
-    $stmt->execute();
+    $stmt->execute([$descricao, $setor, $nivel_prioridade]);
 
     header("Location: lista_chamados.php?sucesso=chamado");
     exit;
